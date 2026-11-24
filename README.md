@@ -39,7 +39,9 @@ cp .env.example .env       # 填入 LLM_API_KEY
 python -m moneyagent "今天中午吃了碗面15块,帮我记一下"
 ```
 
-默认对接 DeepSeek(最便宜的 `deepseek-flash`)。未配置 key 时自动进入离线演示模式。
+默认对接 DeepSeek(最便宜的 `deepseek-flash`)。
+> **⚠️ 项目不自带任何 API key,请填入你自己的 key**(`.env` 已 gitignore,不会提交)。
+未配置 key 时自动进入离线演示模式。
 
 ## 📖 命令参考
 
@@ -82,13 +84,15 @@ python -m moneyagent --mock "午饭25块"          # 强制离线演示
 
 ## 🔌 模型接入
 
-兼容任意 **OpenAI 风格 `/chat/completions`** 接口,改三个环境变量即可:
+兼容任意 **OpenAI 风格 `/chat/completions`** 接口,**使用你自己的 API key**,改三个环境变量即可:
 
 | 平台 | `LLM_BASE_URL` | `LLM_MODEL` |
 |---|---|---|
 | DeepSeek(默认) | `https://api.deepseek.com` | `deepseek-flash` |
 | OpenAI | `https://api.openai.com/v1` | `gpt-4o-mini` |
 | 本地 Ollama | `http://localhost:11434/v1` | `qwen2.5` |
+
+> `LLM_API_KEY` 必填;`LLM_BASE_URL`、`LLM_MODEL` 选填。
 
 ## 🗂 目录结构
 

@@ -1,6 +1,6 @@
 # 钱袋 QianDai · 智能记账财务管家
 
-[![test](https://github.com/wushiyi105-jpg/moneyagent/actions/workflows/test.yml/badge.svg)](https://github.com/wushiyi105-jpg/moneyagent/actions/workflows/test.yml)
+[![test](https://github.com/wushiyi105-jpg/moneyagent/workflows/test/badge.svg)](https://github.com/wushiyi105-jpg/moneyagent/actions)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 

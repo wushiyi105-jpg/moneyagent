@@ -6,7 +6,8 @@ import argparse
 import json
 import sys
 
-from . import __version__, agent, db as dbmod, llm
+from . import __version__, agent, llm
+from . import db as dbmod
 from .llm import LLMError
 
 MOCK_BANNER = (

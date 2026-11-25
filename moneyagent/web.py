@@ -9,7 +9,8 @@ import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import urlparse
 
-from . import agent, db as dbmod, llm
+from . import agent, llm
+from . import db as dbmod
 
 PAGE = """<!doctype html>
 <html lang="zh-CN">

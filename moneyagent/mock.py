@@ -88,7 +88,7 @@ def run(text: str, db: dbmod.Database) -> dict:
         cat = _classify(m_budget.group(1)) if m_budget.group(1).strip() else "餐饮"
         amt = float(m_budget.group(2))
         db.set_budget(cat, amt)
-        return {"answer": f"已设置 {cat} 月预算 {amt} 元。", "steps": [{"tool": "set_budget", "arguments": {"category": cat, "amount": amt}, "result": f"预算已设置"}]}
+        return {"answer": f"已设置 {cat} 月预算 {amt} 元。", "steps": [{"tool": "set_budget", "arguments": {"category": cat, "amount": amt}, "result": "预算已设置"}]}
 
     # 记账
     if amount is not None and ("记" in text or "花" in text or "买" in text or "收" in text or "赚" in text or "吃" in text or "用了" in text or _is_income(text)):

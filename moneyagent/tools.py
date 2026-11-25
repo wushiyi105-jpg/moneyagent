@@ -6,6 +6,7 @@
 
 from __future__ import annotations
 
+import calendar
 from datetime import date
 
 from . import db as dbmod
@@ -33,12 +34,6 @@ def _month_bounds(ref: str) -> tuple[str, str]:
     else:
         y, m = int(ref[:4]), int(ref[5:7])
     first = f"{y:04d}-{m:02d}-01"
-    if m == 12:
-        last = f"{y + 1:04d}-01-31"
-    else:
-        last = f"{y:04d}-{m + 1:02d}-01"
-    # 简化:用 31 号作为月末上界(数据库按 <= 过滤,实际当月天数由 date 判断)
-    import calendar
     last_day = calendar.monthrange(y, m)[1]
     return first, f"{y:04d}-{m:02d}-{last_day:02d}"
 

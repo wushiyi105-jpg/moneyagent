@@ -1,8 +1,6 @@
 # 钱袋 QianDai · 智能记账财务管家
 
-[![test](https://github.com/wushiyi105-jpg/moneyagent/workflows/test/badge.svg)](https://github.com/wushiyi105-jpg/moneyagent/actions)
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+[![test](https://github.com/wushiyi105-jpg/moneyagent/workflows/test/badge.svg)](https://github.com/wushiyi105-jpg/moneyagent/actions) [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)]() [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![codecov](https://codecov.io/gh/wushiyi105-jpg/moneyagent/branch/main/graph/badge.svg)](https://codecov.io/gh/wushiyi105-jpg/moneyagent)
 
 ![demo](assets/demo.gif)
 
@@ -81,6 +79,22 @@ python -m moneyagent --mock "午饭25块"          # 强制离线演示
 ```
 
 可调用的 6 个工具:`record_transaction`、`query_transactions`、`get_summary`、`get_budget`、`set_budget`、`delete_transaction`。
+
+### 数据流
+
+一条数据在这几个模块之间怎么走：
+
+```mermaid
+flowchart LR
+    A[一句话记账或提问] --> B[agent.py<br/>ReAct 循环]
+    B --> C[llm.py<br/>决定调哪个工具]
+    C --> D[tools.py<br/>execute_tool]
+    D --> E[db.py<br/>写流水 · 查预算 · 汇总]
+    E --> F[agent.py<br/>工具结果回填]
+    F -->|还要再调一次| C
+    F -->|说完了| G[cli.py / web.py]
+    F -->|没有 key| H[mock.py<br/>规则回退] --> G
+```
 
 ## 🔌 模型接入
 

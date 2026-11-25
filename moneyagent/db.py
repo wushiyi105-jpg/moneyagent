@@ -79,14 +79,19 @@ class Database:
         sql = "SELECT * FROM transactions WHERE 1=1"
         args: list = []
         if start:
-            sql += " AND date >= ?"; args.append(start)
+            sql += " AND date >= ?"
+            args.append(start)
         if end:
-            sql += " AND date <= ?"; args.append(end)
+            sql += " AND date <= ?"
+            args.append(end)
         if category:
-            sql += " AND category = ?"; args.append(category)
+            sql += " AND category = ?"
+            args.append(category)
         if type:
-            sql += " AND type = ?"; args.append(type)
-        sql += " ORDER BY date DESC, id DESC LIMIT ?"; args.append(limit)
+            sql += " AND type = ?"
+            args.append(type)
+        sql += " ORDER BY date DESC, id DESC LIMIT ?"
+        args.append(limit)
         with self._lock:
             rows = self.conn.execute(sql, args).fetchall()
         return [dict(r) for r in rows]
@@ -125,7 +130,7 @@ class Database:
                 "WHERE date >= ? AND date <= ? GROUP BY type",
                 (start, end),
             ).fetchall()
-        total_expense = total_income = count = 0.0
+        total_expense = total_income = 0.0
         n = 0
         for r in rows:
             n += r["c"]

@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moneyagent"
+version = "0.1.0"
+description = "钱袋 QianDai · 智能记账财务管家 —— 自然语言记账/查账/管预算/出报告"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+
+[project.scripts]
+moneyagent = "moneyagent.cli:main"
+
+[tool.setuptools]
+packages = ["moneyagent"]

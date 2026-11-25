@@ -39,7 +39,7 @@ python -m moneyagent "今天中午吃了碗面15块,帮我记一下"
 
 默认对接 DeepSeek(最便宜的 `deepseek-flash`)。
 > **⚠️ 项目不自带任何 API key,请填入你自己的 key**(`.env` 已 gitignore,不会提交)。
-未配置 key 时自动进入离线演示模式。
+未配置 key 时自动进入离线模式。
 
 ## 📖 命令参考
 
@@ -63,7 +63,7 @@ python -m moneyagent web --port 8000
 
 # 全局选项
 python -m moneyagent --json "这个月花了多少"    # 输出原始 JSON
-python -m moneyagent --mock "午饭25块"          # 强制离线演示
+python -m moneyagent --mock "午饭25块"          # 强制离线模式
 ```
 
 ## 🧠 工作原理(多步工具调用)
@@ -117,7 +117,7 @@ moneyagent/
 │   ├── tools.py    # 工具定义与执行器
 │   ├── db.py       # SQLite 账本 + 预算(线程安全,跨会话)
 │   ├── llm.py      # LLM 客户端(OpenAI 风格接口 + .env 加载 + 空响应重试)
-│   ├── mock.py     # 离线规则引擎(仅演示/测试)
+│   ├── mock.py     # 离线规则引擎(兜底/测试)
 │   ├── cli.py      # 命令行入口
 │   ├── web.py      # Web 界面(可视化每一步工具调用)
 │   └── __main__.py

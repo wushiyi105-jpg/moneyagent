@@ -11,7 +11,7 @@ from . import db as dbmod
 from .llm import LLMError
 
 MOCK_BANNER = (
-    "⚠️  当前为离线演示模式(未配置 LLM_API_KEY),结果由内置规则生成。\n"
+    "⚠️  当前为离线模式(未配置 LLM_API_KEY),结果由内置规则生成。\n"
     "   在 .env 填入 LLM_API_KEY 后,将由大模型多步工具调用完成理解/判断/生成。\n"
 )
 
@@ -106,7 +106,7 @@ def build_parser() -> argparse.ArgumentParser:
         description="钱袋 · 智能记账财务管家:自然语言记账 / 查账 / 管预算 / 出报告。",
     )
     p.add_argument("--version", action="version", version=f"moneyagent {__version__}")
-    p.add_argument("--mock", action="store_true", help="强制离线演示模式(不调用模型)")
+    p.add_argument("--mock", action="store_true", help="强制离线模式(不调用模型)")
     p.add_argument("--json", action="store_true", help="以 JSON 输出原始结果")
     p.add_argument("--model", help="覆盖 LLM_MODEL")
     p.add_argument("--base-url", help="覆盖 LLM_BASE_URL")

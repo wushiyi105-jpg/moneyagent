@@ -37,7 +37,7 @@ python -m moneyagent "今天中午吃了碗面15块,帮我记一下"
 
 It talks to DeepSeek by default (the cheapest, `deepseek-flash`).
 > **⚠️ The project carries no API key of its own — put in your own** (`.env` is already gitignored and never committed).
-With no key configured it falls into offline demo mode.
+With no key configured it falls into offline mode.
 
 ## 📖 Command reference
 
@@ -61,7 +61,7 @@ python -m moneyagent web --port 8000
 
 # global options
 python -m moneyagent --json "这个月花了多少"    # raw JSON output
-python -m moneyagent --mock "午饭25块"          # force offline demo
+python -m moneyagent --mock "午饭25块"          # force offline mode
 ```
 
 ## 🧠 How it works (multi-step tool calling)
@@ -115,7 +115,7 @@ moneyagent/
 │   ├── tools.py    # tool definitions and executor
 │   ├── db.py       # SQLite ledger + budgets (thread safe, cross-session)
 │   ├── llm.py      # LLM client (OpenAI-style API + .env loading + empty-response retry)
-│   ├── mock.py     # offline rule engine (demo / tests only)
+│   ├── mock.py     # offline rule engine (fallback / tests)
 │   ├── cli.py      # command line entry
 │   ├── web.py      # Web UI (visualises each tool call)
 │   └── __main__.py

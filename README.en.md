@@ -2,7 +2,7 @@
 
 [![test](https://github.com/wushiyi105-jpg/moneyagent/workflows/test/badge.svg)](https://github.com/wushiyi105-jpg/moneyagent/actions) [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)]() [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![codecov](https://codecov.io/gh/wushiyi105-jpg/moneyagent/branch/main/graph/badge.svg)](https://codecov.io/gh/wushiyi105-jpg/moneyagent)
 
-![demo](assets/demo.gif)
+![usage](assets/demo.gif)
 
 > Record, query, budget and report money by chatting — it works through the steps by calling tools itself, you just watch.
 

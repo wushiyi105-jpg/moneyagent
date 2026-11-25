@@ -2,7 +2,7 @@
 
 [![test](https://github.com/wushiyi105-jpg/moneyagent/workflows/test/badge.svg)](https://github.com/wushiyi105-jpg/moneyagent/actions) [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)]() [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE) [![codecov](https://codecov.io/gh/wushiyi105-jpg/moneyagent/branch/main/graph/badge.svg)](https://codecov.io/gh/wushiyi105-jpg/moneyagent)
 
-![demo](assets/demo.gif)
+![示例](assets/demo.gif)
 
 > 像聊天一样记账、查账、管预算、出报告——它会自己一步步调工具完成,你看着就行。
 

@@ -17,7 +17,7 @@ PAGE = """<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>钱袋 · 智能记账管家</title>
+<title>钱袋 · 本周花到哪了</title>
 <style>
   :root {
     --bg:#f4f7fb; --card:#ffffff; --ink:#1f2937; --muted:#6b7280;
@@ -73,11 +73,72 @@ PAGE = """<!doctype html>
   .tx:last-child { border-bottom:none; }
   .tx .amt.out { color:var(--red); } .tx .amt.in { color:var(--green); }
   .empty { color:var(--muted); font-size:13px; }
+
+h1{font-size:clamp(31px,5vw,39px);line-height:1.26}
+.prod{display:block;font-size:11px;line-height:1.4;letter-spacing:.18em;font-weight:650;margin-bottom:8px;opacity:.72}
+.lede,.sub{max-width:62ch;line-height:1.75}
+.route{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:0 0 20px;border:1px solid var(--line);background:var(--line)}
+.route span{padding:11px 13px;background:var(--card);font-size:12px;line-height:1.5}
+.route b{display:block;font-size:10px;letter-spacing:.1em;margin-bottom:3px;opacity:.66}
+button{min-height:46px}
+input,select{min-height:44px}
+@media(max-width:680px){
+  .wrap{padding:20px 16px 56px}
+  .route{grid-template-columns:1fr}
+  h1{font-size:30px!important}
+  .row>div{min-width:100%!important}
+  button{width:100%}
+}
+
+body{background:#f0eee8;color:#23332b;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+.wrap{max-width:940px}
+header{padding:8px 0 20px;border-bottom:1px solid #b9b5a5;margin-bottom:20px}
+header h1{font-family:"Songti SC","SimSun",Georgia,serif;font-size:38px;line-height:1.24;letter-spacing:-.01em}
+header p{color:#6e7068;font-size:14px}
+.card{background:#fbfaf6;border:1px solid #d6d2c4;border-radius:2px;box-shadow:none}
+button{background:#1f6b4a;border-radius:2px;letter-spacing:.05em}
+button:hover{background:#19583d}
+textarea,input,select{background:#fffefb;border-color:#d3cfc0;border-radius:2px;font-variant-numeric:tabular-nums}
+textarea:focus,input:focus,select:focus{border-color:#1f6b4a;box-shadow:0 0 0 2px #d6e5dc}
+.cost .cell,.cell{border-color:#d6d2c4;border-radius:2px}
+.cost .cell b{font-family:"Cascadia Mono",Consolas,monospace;font-variant-numeric:tabular-nums}
+.item{border-left:3px solid #1f6b4a}
+h3{color:#1f6b4a;letter-spacing:.08em}
+
+
+/* palette-normalized */
+:root{--bg:#f0eee8;--card:#fbfaf6;--ink:#23332b;--text:#23332b;--dim:#6e7068;--line:#d6d2c4;--accent:#1f6b4a}
+
+/* polish-batch1 */
+button.ghost,button.secondary{background:transparent!important;color:#1f6b4a!important;border:1px solid #d6d2c4!important}
+header{display:block!important}
+header h1{font-size:38px!important;line-height:1.25!important}
+
+/* mobile-32 */
+
+@media(max-width:760px){
+  main{grid-template-columns:1fr!important}
+  aside{border-right:0!important;border-bottom:1px solid #d6d2c4;width:auto!important}
+  section{padding:16px!important}
+  .row{flex-wrap:wrap!important}
+  .row>div{min-width:100%!important}
+  h1{font-size:30px!important}
+  .route{grid-template-columns:1fr!important}
+  button{min-height:48px}
+  pre{overflow-x:auto}
+}
+
+/* mobile-height */
+@media(max-width:760px){main{min-height:auto!important}aside{min-height:0!important}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header><h1>钱袋 · 智能记账管家</h1><span class="badge" id="badge">…</span></header>
+  <header><h1><span class="prod">钱袋</span>本周的钱，花到哪了</h1><span class="badge" id="badge">…</span>
+    <p class="lede">给每周想知道钱花哪的家庭：一句话变成待确认账条，退款跟原消费一起看，月度差异能点回每一笔。</p>
+  </header>
+  <div class="route" aria-label="任务步骤"><span><b>01</b>说一笔支出</span><span><b>02</b>确认金额类别</span><span><b>03</b>对账到月度</span></div>
+
   <p class="sub">像聊天一样记账、查账、管预算——它会自己一步步调工具完成,你看着就行。</p>
 
   <div class="grid">
